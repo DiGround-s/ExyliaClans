@@ -2,6 +2,7 @@ package net.diground.exylia.menus.managers;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.diground.exylia.ExyliaClans;
+import net.diground.exylia.cache.LeaderboardCache;
 import net.diground.exylia.managers.LimitManager;
 import net.diground.exylia.menus.model.InventoryPlayer;
 import net.diground.exylia.menus.model.InventorySection;
@@ -218,7 +219,6 @@ public class MainMenuManager {
 
         loadLeaderboardItems(inv, inventoryPlayer, config, player, filter);
 
-
         player.openInventory(inv);
         players.add(inventoryPlayer);
     }
@@ -430,121 +430,48 @@ public class MainMenuManager {
     private void loadLeaderboardItems(Inventory inv, InventoryPlayer inventoryPlayer, FileConfiguration config, Player player, String filter) {
         long startTime = System.currentTimeMillis();
 
-        long start = System.currentTimeMillis();
-        List<Integer> clanIds = ClanUtils.getAllClansIds(plugin);
-        long end = System.currentTimeMillis();
-        Bukkit.getLogger().info("Tiempo para obtener IDs de clanes: " + (end - start) + "ms");
+        List<Integer> clanIds = plugin.getClanItemCache().getCachedFilteredClans(filter);
 
-        start = System.currentTimeMillis();
-        List<Integer> clansSlots = config.getIntegerList("clans.slots");
-        String clansName = config.getString("clans.name");
-        List<String> clansLore = config.getStringList("clans.lore");
-        end = System.currentTimeMillis();
-        Bukkit.getLogger().info("Tiempo para obtener configuraciones: " + (end - start) + "ms");
-
-        clanIds = filterAndSortClans(clanIds, filter);
-
-        int clansPerPage = clansSlots.size();
+        int clansPerPage = config.getIntegerList("clans.slots").size();
         int totalMembers = clanIds.size();
         int startIndex = inventoryPlayer.getPage() * clansPerPage;
         int endIndex = Math.min(startIndex + clansPerPage, totalMembers);
 
-        long start2 = System.currentTimeMillis();
         for (int i = startIndex; i < endIndex; i++) {
-            long startClan = System.currentTimeMillis();
+            Integer clanId = clanIds.get(i);
+            int slot = config.getIntegerList("clans.slots").get(i - startIndex);
 
-            Integer clan = clanIds.get(i);
-            int slot = clansSlots.get(i - startIndex);
-
-            OfflinePlayer leader = ClanUtils.getClanLeader(plugin, clan);
-            String leaderName = leader == null ? "" : leader.getName();
-
-            String clanName = ChatUtils.oldTranslateColors(clansName.replace("%name%", ClanUtils.getClanNameById(plugin, clan)).replace("%position%", String.valueOf(i + 1)).replace("%prefix%", Objects.requireNonNull(ClanUtils.getClanPrefix(plugin, clan))));
-            String finalLeaderName = leaderName;
-            String clanPrefix = ClanUtils.getClanPrefix(plugin, clan);
-            int onlineMembersCount = ClanUtils.getOnlineClanMembersCount(plugin, clan);
-            int memberCount = ClanUtils.getMemberCount(plugin, clan);
-            Map<String, Integer> stats = ClanUtils.getClanStats(plugin, clan);
-
-            int clanKills = stats.getOrDefault("kills", 0);
-            int clanDeaths = stats.getOrDefault("deaths", 0);
-            double clanKDR = ClanUtils.getClanKDR(plugin, clan);
-            int finalI = i;
-            List<String> memberLore = clansLore.stream()
-                    .map(l -> l.replace("%name%", ClanUtils.getClanNameById(plugin, clan)))
-                    .map(l -> l.replace("%online%", String.valueOf(onlineMembersCount)))
-                    .map(l -> l.replace("%total%", String.valueOf(memberCount)))
-                    .map(l -> l.replace("%kills%", String.valueOf(clanKills)))
-                    .map(l -> l.replace("%deaths%", String.valueOf(clanDeaths)))
-                    .map(l -> l.replace("%kdr%", String.valueOf(clanKDR)))
-                    .map(l -> l.replace("%position%", String.valueOf(finalI + 1)))
-                    .map(l -> l.replace("%leader%", finalLeaderName))
-                    .map(l -> l.replace("%prefix%", Objects.requireNonNull(clanPrefix)))
-                    .collect(Collectors.toList());
-
-            ItemStack clanBanner = ClanUtils.getClanBanner(plugin, clan);
-            if (clanBanner == null) {
-                clanBanner = new ItemStack(Material.valueOf(plugin.getConfig().getString("leaderboard.no_banner_material")));
-            }
-            ItemMeta meta = clanBanner.getItemMeta();
-            if (config.contains("clans.glow")) {
-                boolean glow = config.getBoolean("clans.glow");
-                if (glow) {
-                    meta.addEnchant(Enchantment.LURE, 1, true);
-                    meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                }
-            }
-            meta.setDisplayName(clanName);
-            List<String> coloredLore = new ArrayList<>();
-            for (String line : memberLore) {
-                line = PlaceholderAPI.setPlaceholders(player, line);
-                coloredLore.add(ChatUtils.oldTranslateColors(line));
-            }
-            meta.setLore(coloredLore);
-            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-            meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-            meta.addItemFlags(ItemFlag.HIDE_DYE);
-            meta.addItemFlags(ItemFlag.HIDE_PLACED_ON);
-            clanBanner.setItemMeta(meta);
-
-            inv.setItem(slot, clanBanner);
-
+            ItemStack clanItem = plugin.getClanItemCache().getCachedClanItem(clanId);
+            inv.setItem(slot, clanItem);
 
             Map<ClickType, List<String>> itemCommands = new HashMap<>();
             if (config.contains("clans.left_click_commands")) {
                 List<String> commands = config.getStringList("clans.left_click_commands");
-                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clan))).collect(Collectors.toList());
+                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clanId))).collect(Collectors.toList());
                 itemCommands.put(ClickType.LEFT, commands);
             }
             if (config.contains("clans.right_click_commands")) {
                 List<String> commands = config.getStringList("clans.right_click_commands");
-                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clan))).collect(Collectors.toList());
+                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clanId))).collect(Collectors.toList());
                 itemCommands.put(ClickType.RIGHT, commands);
             }
             if (config.contains("clans.middle_click_commands")) {
                 List<String> commands = config.getStringList("clans.middle_click_commands");
-                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clan))).collect(Collectors.toList());
+                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clanId))).collect(Collectors.toList());
                 itemCommands.put(ClickType.MIDDLE, commands);
             }
             if (config.contains("clans.click_commands")) {
                 List<String> commands = config.getStringList("clans.click_commands");
-                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clan))).collect(Collectors.toList());
+                commands = commands.stream().map(cmd -> cmd.replace("%name%", ClanUtils.getClanNameById(plugin, clanId))).collect(Collectors.toList());
                 itemCommands.put(ClickType.UNKNOWN, commands);
             }
 
             String key = InventorySection.LEADERBOARD.name() + "_" + slot;
             sectionCommandsMap.put(key, itemCommands);
-
-            long endClan = System.currentTimeMillis();
-            Bukkit.getLogger().info("Tiempo total para procesar clan ID " + clan + ": " + (endClan - startClan) + "ms");
         }
-        long end2 = System.currentTimeMillis();
-        Bukkit.getLogger().info("Tiempo total para cargar los clanes: " + (end2 - start2) + "ms");
 
-        long end3 = System.currentTimeMillis();
-        Bukkit.getLogger().info("Tiempo total para cargar los elementos del leaderboard: " + (end3 - startTime) + "ms");
+        long endTime = System.currentTimeMillis();
+        Bukkit.getLogger().info("Tiempo total para cargar los elementos del leaderboard: " + (endTime - startTime) + "ms");
     }
 
 

@@ -2,6 +2,8 @@ package net.diground.exylia;
 
 import net.diground.exylia.api.ClanAPI;
 import net.diground.exylia.api.ClanAPIImpl;
+import net.diground.exylia.cache.ClanItemCache;
+import net.diground.exylia.cache.LeaderboardCache;
 import net.diground.exylia.dependencies.PlaceholderAPI;
 import net.diground.exylia.commands.main.ClanAdminCommand;
 import net.diground.exylia.commands.main.ClanCommand;
@@ -11,6 +13,7 @@ import net.diground.exylia.managers.*;
 import net.diground.exylia.menus.listeners.MenuListener;
 import net.diground.exylia.menus.managers.MainMenuManager;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -44,6 +47,8 @@ public final class ExyliaClans extends JavaPlugin {
     public static final Map<UUID, BukkitTask> refreshTasks = new HashMap<>();
     private MainMenuManager mainMenuManager;
     private ClanAPI clanAPI;
+    private LeaderboardCache leaderboardCache;
+    private ClanItemCache clanItemCache;
 
     public ExyliaClans() {
         databaseConnection = new DatabaseManager(this);
@@ -52,15 +57,56 @@ public final class ExyliaClans extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        long start = System.currentTimeMillis();
         setupConfig();
+        long end = System.currentTimeMillis();
+        Bukkit.getLogger().info("Config actualizado en " + (end - start) + "ms");
+
+
+        long start2 = System.currentTimeMillis();
         setupMessages();
+        long end2 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Mensajes actualizado en " + (end2 - start2) + "ms");
+
+
+        long start3 = System.currentTimeMillis();
         setupMenus();
+        long end3 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Menus actualizados en " + (end3 - start3) + "ms");
+
+        long start4 = System.currentTimeMillis();
+        leaderboardCache = new LeaderboardCache(this);
+        clanItemCache = new ClanItemCache(this);
+        long end4 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Caché de leaderboard actualizado en " + (end4 - start4) + "ms");
+
+
+        long start5 = System.currentTimeMillis();
         databaseConnection.setupDatabase();
         databaseConnection.updateDatabase();
+        long end5 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Base de datos actualizada en " + (end5 - start5) + "ms");
+
+        long start6 = System.currentTimeMillis();
         this.clanAPI = new ClanAPIImpl(this);
+        long end6 = System.currentTimeMillis();
+        Bukkit.getLogger().info("API de Clanes actualizada en " + (end6 - start6) + "ms");
+
+        long start7 = System.currentTimeMillis();
         registerCommands();
+        long end7 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Comandos actualizados en " + (end7 - start7) + "ms");
+
+        long start8 = System.currentTimeMillis();
         registerListeners();
+        long end8 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Listeners actualizados en " + (end8 - start8) + "ms");
+
+        long start9 = System.currentTimeMillis();
         registerManagers();
+        long end9 = System.currentTimeMillis();
+        Bukkit.getLogger().info("Managers actualizados en " + (end9 - start9) + "ms");
+
         databaseType = this.getConfig().getString("database.type");
         getLogger().info("FenixClans has been enabled!");
         if (!setupEconomy()) {
@@ -71,7 +117,12 @@ public final class ExyliaClans extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
+        long start = System.currentTimeMillis();
         databaseConnection.closeDatabaseConnection();
+        long end = System.currentTimeMillis();
+        getLogger().info("Base de datos cerrada en " + (end - start) + "ms");
+
         getLogger().info("FenixClans has been disabled!");
     }
 
@@ -264,5 +315,13 @@ public final class ExyliaClans extends JavaPlugin {
 
     public MainMenuManager getMenuManager() {
         return mainMenuManager;
+    }
+
+    public LeaderboardCache getLeaderboardCache() {
+        return leaderboardCache;
+    }
+
+    public ClanItemCache getClanItemCache() {
+        return clanItemCache;
     }
 }

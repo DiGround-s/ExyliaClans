@@ -19,6 +19,7 @@ base:
   teleport_delay: 5
 leaderboard:
   no_banner_material: ARMOR_STAND # material for clans without banner
+  refresh-time: 10 # in minutes
 team_localizator:
   to_members: false # only for clan members
   format_members: "<gray>[<#d75eff>%player%<gray>] <#00ff00>[ %x% | %y% | %z% ]"
