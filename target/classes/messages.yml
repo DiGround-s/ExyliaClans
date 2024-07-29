@@ -1,0 +1,592 @@
+
+############################################################################
+# Hex Colors: <#FFFFFF>TEXT                                                 #
+# Gradients Colors: <#FFFFFF>TEXT</#FFFFFF>                                #
+############################################################################
+placeholders:
+  online:
+    online: "&aOnline"
+    offline: "&cOffline"
+  timeformat: "dd/MM HH:mm"
+  no_clan_name: "No Clan"
+  no_clan_name_colored: "&4No Clan"
+  select:
+    selected: "&a&oSelected"
+    deselected: "&c&oDeselected"
+  no_enemies: "&4No enemies"
+  no_allies: "&4No allies"
+messages:
+  # USAGES
+  usage_create: "<#cf1313>Usage: <#00ff99>/clan create <name>"
+  usage_disband: "<#cf1313>Usage: <#00ff99>/clan disband"
+  usage_invite: "<#cf1313>Usage: <#00ff99>/clan invite <player>"
+  usage_join: "<#cf1313>Usage: <#00ff99>/clan join [clan]"
+  usage_kick: "<#cf1313>Usage: <#00ff99>/clan kick <player>"
+  usage_rename: "<#cf1313>Usage: <#00ff99>/clan rename <new name>"
+  usage_list: "<#cf1313>Usage: <#00ff99>/clan list [page]"
+  usage_pvp: "<#cf1313>Usage: <#00ff99>/clan pvp"
+  ally_request_usage: "<#cf1313>Usage: <#00ff99>/clan ally request <clan>"
+  ally_accept_usage: "<#cf1313>Usage: <#00ff99>/clan ally accept <clan>"
+  ally_deny_usage: "<#cf1313>Usage: <#00ff99>/clan ally deny <clan>"
+  ally_break_usage: "<#cf1313>Usage: <#00ff99>/clan ally break <clan>"
+  usage_info: "<#cf1313>Usage: <#00ff99>/clan info [player|clan]"
+  usage_promote: "<#cf1313>Usage: /clan promote <player>"
+  usage_demote: "<#cf1313>Usage: /clan demote <player>"
+  usage_setleader: "<#cf1313>Usage: /clan setleader <player>"
+  usage_bank: "<#cf1313>Usage: /clan bank deposit <amount> or /clan bank withdraw <amount>"
+  enemy_usage: "<#cf1313>Usage: /clan enemy <clan>"
+  allychat_usage: "<#cf1313>Usage: /clan allychat <message>"
+  regroup_usage: "<#cf1313>Usage: /clan regroup [accept|send|cancel]"
+
+  # ERRORS
+  only_players: "<#ff0000>Only players can use this command."
+  only_leader: "<#ff0000>Only the clan leader can use this command."
+  already_in_clan: "<#ff0000>You are already in a clan."
+  player_already_in_clan: "<#ff0000>That player is already in a clan."
+  clan_name_taken: "<#ff0000>That clan name is already taken. Please choose another name."
+  not_clan_leader: "<#ff0000>Only the clan leader can disband the clan."
+  not_in_clan: "<#ff0000>You are not in a clan."
+  player_not_found: "<#ff0000>Player not found."
+  player_or_clan_not_found: "<#ff0000>Player or clan not found."
+  invite_not_found: "<#ff0000>You have not been invited to the clan <#d75eff>%clan%<#ff0000>."
+  clan_not_found: "<#ff0000>The clan <#d75eff>%clan%<#ff0000> does not exist."
+  no_invites: "<#ff0000>You have no pending clan invites."
+  not_same_clan: "<#ff0000>You cannot kick a player who is not in your clan."
+  cannot_kick_leader: "<#ff0000>You cannot kick the leader of the clan."
+  base_not_set: "<#ff0000>Clan base is not set."
+  teleport_cancelled: "<#ff0000>Teleport cancelled due to movement or damage."
+  invalid_page_number: "<#ff0000>Invalid page number."
+  ally_same_clan: "<#ff0000>You cannot ally with your own clan."
+  already_allied: "<#ff0000>Your clan is already allied with %clan%."
+  pending_request: "<#ff0000>There is already a pending ally request to %clan%."
+  no_pending_request: "<#ff0000>There is no pending ally request from %clan%."
+  not_allied: "<#ff0000>You are not allied with %clan%."
+  pvp_disabled_in_clan: "<#ff0000>PvP is disabled in your clan."
+  pvp_disabled_among_allies: "<#ff0000>PvP is disabled among allied clans."
+  no_permission: "<#ff0000>You do not have permission to use this command."
+  already_highest_rank: "<#ff0000>Player is already at the highest rank."
+  already_lowest_rank: "<#ff0000>Player is already at the lowest rank."
+  cannot_demote_self: "<#ff0000>You cannot demote yourself."
+  cannot_promote_self: "<#ff0000>You cannot promote yourself."
+  invalid_amount: "<#ff0000>Invalid amount."
+  insufficient_clan_funds: "<#ff0000>Insufficient clan funds."
+  insufficient_player_funds: "<#ff0000>Insufficient funds."
+  insufficient_player_funds_with_cost: "<#ff0000>Insufficient funds. You need: %cost%."
+  enemy_same_clan: "<#ff0000>You cannot make an enemy relationship with your own clan."
+  this_clan_is_allied_with: "<#ff0000>This clan is allied with your clan, so you cannot make an enemy relationship."
+  max_enemies_reached: "<#ff0000>Your clan has reached the maximum number of enemies."
+  max_allies_reached: "<#ff0000>Your clan has reached the maximum number of allies."
+  max_members_reached: "<#ff0000>Your clan has reached the maximum number of members."
+  ally_clan_max_allies_reached: "<#ff0000>Clan %clan% has reached the maximum number of allies."
+  in_clan: "<#ff0000>You are already in a clan."
+  regroup_already_active: "<#ff0000>A regroup is already in progress."
+  no_active_regroup: "<#ff0000>No active regroups."
+  no_active_regroup_to_cancel: "<#ff0000>There is no active regroup to cancel."
+  this_clan_is_allied: "<#ff0000>This clan is allied with your clan, so you cannot make an enemy relationship."
+  invalid_clan_name: "<#ff0000>Invalid clan name, must be between %min% and %max% characters and only contain letters, numbers, and underscores."
+  cannot_kick_self: "<#ff0000>You cannot kick yourself."
+  no_next_pages: "<#ff0000>There are no more pages to view."
+  no_previous_page: "<#ff0000>There are no previous pages to view."
+  unknown_command: "<#ff0000>Unknown command."
+  invalid_clan_prefix: "<#ff0000>Invalid clan prefix, must be between %min% and %max% characters, the prefix only count the real characters and no the colors code or similar."
+  clan_prefix_taken: "<#ff0000>Clan prefix already taken."
+  player_not_in_clan: "<#ff0000>The player is not in a clan."
+  no_permission_vip: "<#ff0000>You do not have permission to use this command. Only player with Clan VIP can use this command."
+
+
+  # WARNINGS
+  disband_confirmation: "<#ffd500>Please confirm disband by typing <#ff0000>/clan disband <#ffd500>again within 10 seconds."
+  disband_timeout: "<#ffd500>Disband confirmation timed out. Please use the command again."
+  multiple_invites: "<#ffd500>You have been invited to multiple clans:"
+  cannot_leave_as_leader: "<#ffd500>You cannot leave the clan as you are the leader. Disband the clan or transfer leadership first."
+  teleport_start: "<#ffd500>Teleporting to clan base in 5 seconds. Do not move or take damage!"
+  teleport_in_progress: "<#ffd500>A teleport is already in progress."
+  ally_break_confirm: "<#ffd500>Type the command again within 10 seconds to confirm the break."
+  confirm_setleader: "<#ffd500>Type /clan setleader <player> again within 10 seconds to confirm."
+  regroup_expired: "<#ffd500>The regroup has expired."
+  regroup_accepted: "<#ffd500>Regrouping with your clan in 5 seconds. Do not move or take damage!"
+
+
+  # PROBLEMS
+  error_creating_clan: "<#ff0000>An error occurred while creating the clan."
+  world_not_found: "<#ff0000>World not found."
+  no_clans: "<#ff0000>No clans have been created."
+
+
+  # SUCCESS
+  clan_created: "<#00ff91>Clan <#d75eff>%clan% <#00ff91>created successfully!"
+  clan_renamed: "<#00ff91>Clan renamed to <#d75eff>%clan%<#00ff91> successfully!"
+  clan_disbanded: "<#00ff91>Your clan has been disbanded."
+  invite_sent: "<#00ff91>Invite sent to <#d75eff>%player%<#00ff91>."
+  join_success: "<#00ff91>You have successfully joined the clan <#d75eff>%clan%<#00ff91>."
+  leave_success: "<#00ff91>You have left your clan."
+  kick_success: "<#00ff91>You have kicked <#d75eff>%player% <#00ff91>from the clan."
+  member_kicked: "<#00ff91>%player% has been kicked from the clan."
+  base_set_success: "<#00ff91>Clan base set successfully!"
+  teleport_success: "<#00ff91>Teleported to clan base."
+  base_deleted: "<#00ff91>Clan base deleted successfully."
+  pvp_toggled: "<#00ff91>PvP between clan members is now %status%."
+  ally_request_sent: "<#00ff91>Ally request sent to %clan%."
+  ally_request_accepted: "<#00ff91>You have accepted the ally request from %clan%."
+  ally_request_sent_to_members: "<#00ff91>Your clan has sent an ally request to %clan%."
+  ally_request_received: "<#00ff91>Your clan has received an ally request from %clan%."
+  ally_request_accepted_by: "<#00ff91>Your ally request has been accepted by %clan%."
+  ally_request_accepted_from: "<#00ff91>You have accepted the ally request from %clan%."
+  ally_request_denied_by: "<#00ff91>Your ally request has been denied by %clan%."
+  ally_request_denied_to: "<#00ff91>You have denied the ally request from %clan%."
+  promote_success: "<#00ff91>You have promoted %player% to %rank%."
+  demote_success: "<#00ff91>You have demoted %player% to %rank%."
+  setleader_success: "<#00ff91>You have set %player% as the new leader."
+  successfully_deposited: "<#00ff91>Successfully deposited $%amount%."
+  successfully_withdrawn: "<#00ff91>Successfully withdrawn $%amount%."
+  enemy_removed: "<#00ff91>You have removed %clan% from your enemy list."
+  enemy_added: "<#00ff91>You have added %clan% to your enemy list."
+  regroup_sent: "<#00ff91>You have sent a regroup request."
+  regroup_cancelled: "<#00ff91>The regroup has been cancelled."
+  regroup_success: "<#00ff91>You have successfully regrouped with your clan."
+  reloaded: "<#00ff91>Reloaded."
+  clan_prefix_updated: "<#00ff91>Clan prefix has been updated."
+
+  # RECEIVED
+  invite_received: "<hover:show_text:'<#47ff72>Click to join.'><click:run_command:/clan join %clan%><#00ff00>You have been invited to join the clan <#d75eff>%clan%<#00ff00>. <#47ff72>Click to join.</click></hover>"
+
+  # INFO
+  join_specific: "<#00c3ff>Type /clan join <clan> to join a specific clan."
+  member_left: "<#00c3ff>%player% has left the clan."
+  kicked: "<#00c3ff>You have been kicked from the clan <#d75eff>%clan%<#00c3ff>."
+  chat_mode_normal: "<#00c3ff>You are now in normal chat mode."
+  ally_request_denied: "<#00c3ff>You have denied the ally request from %clan%."
+  ally_broken: "<#00c3ff>You have broken the alliance with %clan%."
+  ally_broken_with: "<#00c3ff>Your alliance with %clan% has been broken."
+  ally_broken_by: "<#00c3ff>Your alliance with %clan% has been broken by %clan%."
+  pvp_disabled_in_clan_attacked: "<#00c3ff>You were attacked by a member of your own clan, but no damage was done."
+  pvp_disabled_among_allies_attacked: "<#00c3ff>You were attacked by a member of an allied clan, but no damage was done."
+  demoted: "<#00c3ff>You have been demoted to %rank%."
+  promoted: "<#00c3ff>You have been promoted to %rank%."
+  promoted_to_leader: "<#00c3ff>You have been promoted to Leader."
+  clan_balance: "<#00c3ff>Your clan has a balance of $%amount%."
+  regroup_time_remaining: "&#00c3ffClan regroup is active for %time%s." # Here i dont use minimessages, because it's not supported i think...
+  clan_created_broadcast: "<#00c3ff>The clan %clan% has been created by %player%."
+
+  # FORMATS
+  chat_format:
+    clan: "<dark_gray>[<#d75eff>%clan%<dark_gray>] <#d75eff>%player%<dark_gray>: <#cf7ceb>%message%"
+    ally: "<dark_gray>[<#42b3f5>%clan%<dark_gray>] <#42b3f5>%player%<dark_gray>: <#67c0f5>%message%"
+  chat_mode:
+    clan: "CLAN"
+    ally: "ALLY"
+    global: "GLOBAL"
+
+  chat_mode_clan: "<#d75eff>Switched to Clan Chat!"
+  chat_mode_ally: "<#42b3f5>Switched to Ally Chat!"
+  chat_mode_global: "<#30f076>Switched to Global Chat!"
+
+
+
+
+
+notifications:
+  prefix: "<gradient:#c300ff:#ff00cc><b>CLAN</gradient> <dark_gray>»<white>"
+  member_joined:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>ha joined the clan %clan%."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>ha joined the clan %clan%."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>ha joined the clan."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_PLAYER_LEVELUP"
+  member_left:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>has left the clan %clan%."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>has left the clan %clan%."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>has left the clan."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_PLAYER_HURT"
+  member_kicked:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#d75eff>%player% <#ff0000>has been kicked from the clan %clan%."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#ff0000>has been kicked from the clan %clan%."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#ff0000>has been kicked from the clan."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_VILLAGER_NO"
+  member_died:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#ff0000>%PREFIX% <#d75eff>%player% <#ff0000>has died."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#ff0000>has died."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#ff0000>has died."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_WITHER_DEATH"
+  member_connected:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>has connected."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>has connected."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>has connected."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_PLAYER_LEVELUP"
+  member_disconnected:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#ff0000>%PREFIX% <#d75eff>%player% <#ff0000>has disconnected."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#ff0000>has disconnected."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#ff0000>has disconnected."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_VILLAGER_NO"
+  base_created:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<hover:show_text:'<#47ff72>Click to go to the base.'><click:run_command:/clan base><#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>has created a new base.</click></hover>"
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>has created a new base."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>has created a new base."
+      subtitle: "Clan: %clan%"
+    sound: "BLOCK_ANVIL_PLACE"
+  base_deleted:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#ff0000>%PREFIX% <#d75eff>%player% <#ff0000>has deleted the base."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#ff0000>has deleted the base."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#ff0000>has deleted the base."
+      subtitle: "Clan: %clan%"
+    sound: "BLOCK_ANVIL_BREAK"
+  teleported_to_base:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>has teleported to the base."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>has teleported to the base."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>has teleported to the base."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_ENDERMAN_TELEPORT"
+  clan_invite:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%inviter% <#d75eff>has invited <#d75eff>%invitee% <#d75eff>to the clan."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%inviter% <#d75eff>has invited <#d75eff>%invitee% <#d75eff>to the clan."
+    title:
+      enabled: false
+      message: "<#d75eff>%inviter% <#d75eff>has invited <#d75eff>%invitee% <#d75eff>to the clan."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_ITEM_PICKUP"
+  new_member:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% <#d75eff>%player% <#d75eff>has joined the clan."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>%player% <#d75eff>has joined the clan."
+    title:
+      enabled: false
+      message: "<#d75eff>%player% <#d75eff>has joined the clan."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_PLAYER_LEVELUP"
+  pvp_enabled:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% PvP has been <#d75eff>enabled<#d75eff>."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>PvP has been <#d75eff>enabled<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>PvP has been <#d75eff>enabled<#d75eff>."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR"
+  pvp_disabled:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#d75eff>%PREFIX% PvP has been <#ff0000>disabled<#d75eff>."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>PvP has been <#ff0000>disabled<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>PvP has been <#ff0000>disabled<#d75eff>."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_ZOMBIE_ATTACK_IRON_DOOR"
+  clan_renamed:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% The clan has been renamed to <#d75eff>%new_name%<#d75eff>."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>The clan has been renamed to <#d75eff>%new_name%<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>The clan has been renamed to <#d75eff>%new_name%<#d75eff>."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  clan_disbanded:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<#ff0000>%PREFIX% The clan has been disbanded."
+    action_bar:
+      enabled: true
+      message: "<#ff0000>The clan has been disbanded."
+    title:
+      enabled: false
+      message: "<#ff0000>The clan has been disbanded."
+      subtitle: "Clan: %clan%"
+    sound: "ENTITY_WITHER_SPAWN"
+  ally_request_sent:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#d75eff>Your clan has sent an ally request to <#47ff72>%target_clan%<#d75eff>."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>Your clan has sent an ally request to <#47ff72>%target_clan%<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>Ally Request Sent"
+      subtitle: "To %target_clan%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  ally_request_received:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<hover:show_text:'<#47ff72>Click to accept'><click:run_command:/clan ally accept %requester_clan%>%PREFIX% <#d75eff>Your clan has received an ally request from <#47ff72>%requester_clan%<#d75eff>.</click></hover>"
+    action_bar:
+      enabled: true
+      message: "<#d75eff>Your clan has received an ally request from <#47ff72>%requester_clan%<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>Ally Request Received"
+      subtitle: "From %requester_clan%"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  ally_request_accepted:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#d75eff>Your clan is now allied with <#47ff72>%ally_clan%<#d75eff>."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>Your clan is now allied with <#47ff72>%ally_clan%<#d75eff>."
+    title:
+      enabled: false
+      message: "<#d75eff>Ally Request Accepted"
+      subtitle: "With %ally_clan%"
+    sound: "ENTITY_PLAYER_LEVELUP"
+  ally_request_denied:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#d75eff>Your ally request to <#47ff72>%requester_clan% <#d75eff>was denied."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>Your ally request to <#47ff72>%requester_clan% <#d75eff>was denied."
+    title:
+      enabled: false
+      message: "<#d75eff>Ally Request Denied"
+      subtitle: "By %requester_clan%"
+    sound: "ENTITY_VILLAGER_NO"
+  alliance_broken:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#d75eff>Your alliance with <#47ff72>%target_clan% <#d75eff>has been broken."
+    action_bar:
+      enabled: true
+      message: "<#d75eff>Your alliance with <#47ff72>%target_clan% <#d75eff>has been broken."
+    title:
+      enabled: false
+      message: "<#d75eff>Alliance Broken"
+      subtitle: "With %target_clan%"
+    sound: "ENTITY_ENDER_DRAGON_GROWL"
+  member_promoted:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has been promoted to %rank%."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has been promoted to %rank%."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has been promoted to %rank%."
+      subtitle: ""
+    sound: "ENTITY_PLAYER_LEVELUP"
+  member_demoted:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has been demoted to %rank%."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has been demoted to %rank%."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has been demoted to %rank%."
+      subtitle: ""
+    sound: "ENTITY_PLAYER_LEVELUP"
+  new_leader:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>is now the new leader of the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>is now the new leader of the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>is now the new leader of the clan."
+      subtitle: ""
+    sound: "ENTITY_PLAYER_LEVELUP"
+  bank_deposited:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has deposited %amount% into the clan bank."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has deposited %amount% into the clan bank."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has deposited %amount% into the clan bank."
+      subtitle: ""
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  bank_withdrawn:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has withdrawn %amount% from the clan bank."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has withdrawn %amount% from the clan bank."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has withdrawn %amount% from the clan bank."
+      subtitle: ""
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  enemy_added:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%target% <#d75eff>is now an enemy of the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%target% <#d75eff>is now an enemy of the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%target% <#d75eff>is now an enemy of the clan."
+      subtitle: ""
+    sound: "ENTITY_VILLAGER_HURT"
+  enemy_removed:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%target% <#d75eff>is no longer an enemy of the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%target% <#d75eff>is no longer an enemy of the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%target% <#d75eff>is no longer an enemy of the clan."
+      subtitle: ""
+    sound: "ENTITY_VILLAGER_HURT"
+  regroup_created:
+    enabled: true
+    chat:
+      enabled: true
+      message: "<hover:show_text:'<#47ff72>Click to teleport to the clan.'><click:run_command:/clan regroup accept>%PREFIX% <#47ff72>%player% <#d75eff>has created a regroup with the clan. Click to teleport to the clan.</click></hover>"
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has created a regroup with the clan."
+    title:
+      enabled: true
+      message: "<#47ff72>%player% created a regroup"
+      subtitle: "<#d75eff>Regroup with the clan!"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  regroup_cancelled:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has cancelled their regroup with the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has cancelled their regroup with the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has cancelled their regroup with the clan."
+      subtitle: ""
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  regroup_expired:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has expired their regroup with the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has expired their regroup with the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has expired their regroup with the clan."
+      subtitle: ""
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  regroup_accepted:
+    enabled: true
+    chat:
+      enabled: true
+      message: "%PREFIX% <#47ff72>%player% <#d75eff>has accepted their regroup with the clan."
+    action_bar:
+      enabled: true
+      message: "<#47ff72>%player% <#d75eff>has accepted their regroup with the clan."
+    title:
+      enabled: false
+      message: "<#47ff72>%player% <#d75eff>has accepted their regroup with the clan."
+      subtitle: ""
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"

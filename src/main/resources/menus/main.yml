@@ -1,0 +1,200 @@
+title: "&#ff8000&lCLAN %name% &8| &cMain"
+size: 45
+items:
+  info:
+    material: OAK_SIGN
+    slot: 4
+    name: "&#ff8000&lINFORMACIÓN DEL CLAN"
+    lore:
+      - ""
+      - "&7General"
+      - "  &8» &fName: &6%clan_name%"
+      - "  &8» &fPrefix: &6%clan_prefix%"
+      - "  &8» &fBank: &6$%clan_balance%"
+      - ""
+      - "&7PvP Stats"
+      - "  &8» &fKills: &6%clan_kills% &7(%clan_player_kills%)"
+      - "  &8» &fDeaths: &6%clan_deaths% &7(%clan_player_deaths%)"
+      - "  &8» &fKDR: &6%clan_kdr% &7(%clan_player_kdr%)"
+      - ""
+      - "&7Player Stats"
+      - "  &8» &fRank: &6%clan_player_rank%"
+      - "  &8» &fKills: &6%clan_player_kills%"
+      - "  &8» &fDeaths: &6%clan_player_deaths%"
+      - "  &8» &fKDR: &6%clan_player_kdr%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan public information."
+      - ""
+    click_commands:
+      - "clan info"
+  allies:
+    material: BLUE_DYE
+    slot: 10
+    name: "&#ff8000&lALLIES"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:VIEW_ALLIES%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan allies."
+      - ""
+    click_commands:
+      - "clan ally"
+  enemies:
+    material: RED_DYE
+    slot: 11
+    name: "&#ff8000&lENEMIES"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:VIEW_ENEMIES%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan enemies."
+      - ""
+    click_commands:
+      - "clan enemy"
+  members:
+    material: PLAYER_HEAD
+    slot: 19
+    name: "&#ff8000&lMEMBERS"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:VIEW_MEMBERS%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan members."
+      - ""
+    click_commands:
+      - "clan members"
+  war:
+    material: GOLDEN_SWORD
+    slot: 15
+    name: "&#ff8000&lWARS"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:WARS%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan wars."
+      - ""
+  leaderboard:
+    material: NETHER_STAR
+    slot: 16
+    name: "&#ff8000&lLEADERBOARD"
+    lore:
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan leaderboard."
+      - ""
+    click_commands:
+      - "clan top"
+  banner:
+    material: WHITE_BANNER
+    slot: 25
+    name: "&#ff8000&lBANNER"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:CHANGE_BANNER%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo change the clan banner."
+      - ""
+    click_commands:
+      - "clan banner"
+  regroup:
+    material: ENDER_EYE
+    slot: 22
+    name: "&#ff8000&lREGROUP"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:USE_REGROUP%"
+      - ""
+      - "&7Left click"
+      - "  &8» &fTo accept the clan regroup."
+      - ""
+      - "&7Right click"
+      - "  &8» &fTo send the clan regroup."
+      - ""
+    left_click_commands:
+      - "clan regroup accept"
+    right_click_commands:
+      - "clan regroup send"
+  chest:
+    material: ENDER_CHEST
+    slot: 30
+    name: "&#ff8000&lCLAN CHEST"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:USE_CHEST%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo open the clan chest."
+      - ""
+    click_commands:
+      - "clan chest"
+  bank:
+    material: SUNFLOWER
+    slot: 31
+    name: "&#ff8000&lCLAN BANK"
+    lore:
+      - ""
+      - "&7Deposit"
+      - "  &8» &fTo deposit money in the clan bank"
+      - "  &8» &fuse /clan bank deposit <amount>"
+      - ""
+      - "&7Withdraw"
+      - "  &8» &fTo withdraw money from the clan bank."
+      - "  &8» &fuse /clan bank withdraw <amount>"
+      - ""
+  base:
+    material: RED_BED
+    slot: 32
+    name: "&#ff8000&lCLAN BASE"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:USE_BASE%"
+      - ""
+      - "&7Click"
+      - "  &8» &fTo go to the clan base."
+      - ""
+    click_commands:
+      - "clan base"
+  chat:
+    material: BOOK
+    refresh: true
+    slot: 36
+    name: "&#ff8000&lCHAT"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:USE_CHAT%"
+      - ""
+      - "&7Actual Chat"
+      - "  &8» &6&l %clan_player_actual_chat%"
+      - ""
+      - "&7Click"
+      - "  &8» &fTo toggle the clan/ally/global chat."
+      - ""
+    click_commands:
+      - "clan chat"
+  settings:
+    material: COMPARATOR
+    slot: 44
+    name: "&#ff8000&lSETTINGS"
+    lore:
+      - ""
+      - "&7Rank to use"
+      - "  &8» %clan_min_rank:CHANGE_SETTINGS%"
+      - ""
+      - "&7Click"
+      - "  &8» &fTo change the clan settings."
+      - ""

@@ -1,0 +1,55 @@
+title: "&#ff8000&lCLAN %name% &8| &cMembers"
+size: 45
+members:
+  slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34]
+  name: "&#ff8000&l%name%"
+  lore:
+    - ""
+    - "&7Information"
+    - "  &8» &fStatus: %online%"
+    - "  &8» &fRank: %rank%"
+    - ""
+    - "&7Date information"
+    - "  &8» &fJoin date: &7%time_joined% ⌚"
+    - "  &8» &fLast seen: &7%last_seen% ⌚"
+    - ""
+    - "&7Actions"
+    - "  &8» &fLeft click to &2Promote"
+    - "  &8» &fRight click to &cDemote"
+    - "  &8» &fMiddle click to &4Kick"
+    - ""
+  left_click_commands:
+    - "clan promote %name%"
+  right_click_commands:
+    - "clan demote %name%"
+  middle_click_commands:
+    - "clan kick %name%"
+next_page:
+  material: ARROW
+  slot: 41
+  name: "&dNext Page"
+  lore:
+    - "&fGo to next page"
+previous_page:
+  material: ARROW
+  slot: 39
+  name: "&dPrevious Page"
+  lore:
+    - "&fGo to previous page"
+close:
+  material: BARRIER
+  slot: 40
+  name: "&cClose"
+  lore:
+    - "&fClose the menu"
+back:
+  material: STONE_BUTTON
+  slot: 40
+  name: "&cBack"
+  lore:
+    - "&fGo back to the previous menu"
+items:
+  fill_slot:
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 37, 38, 42, 43, 44]
+    name: "&f"

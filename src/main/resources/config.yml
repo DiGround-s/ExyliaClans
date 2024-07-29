@@ -1,0 +1,63 @@
+database:
+  type: sqlite # 'mysql' or 'sqlite'
+  mysql:
+    host: localhost
+    port: 3306
+    database: exyliaclans
+    user: root
+    password: password
+limits:
+  max_members: 25
+  max_alliances: 2 # if you want to add more than 5 alliances, you need to change menus/enemies.yml and add more dynamic slots
+  max_enemies: 5 # if you want to add more than 5 enemies, you need to change menus/enemies.yml and add more dynamic slots
+regroup:
+  teleport_delay: 5
+  bossbar: # change text in messages.yml
+    color: BLUE
+    style: SEGMENTED_20
+base:
+  teleport_delay: 5
+leaderboard:
+  no_banner_material: ARMOR_STAND # material for clans without banner
+team_localizator:
+  to_members: false # only for clan members
+  format_members: "<gray>[<#d75eff>%player%<gray>] <#00ff00>[ %x% | %y% | %z% ]"
+  to_allies: true # for clan members and allies
+  format_allies: "<gray>[<#42b3f5>%player%<gray>] <#00ffff>[ %x% | %y% | %z% ]"
+relational:
+  colors: # output from %rel_clan_color% placeholder
+    ally: "&#0080ff"
+    enemy: "&#ff0000"
+    member: "&#00ff00"
+    none: ""
+cost:
+  clan_create: 100
+broadcast:
+  clan_created: true
+name:
+  max_length: 8
+  min_length: 3
+  regex: "^[a-zA-Z0-9_]{3,16}$"
+prefix:
+  max_length: 8
+  min_length: 3
+  # the prefix only count the real characters and no the colors or similar
+  # where clan is created or renamed, the prefix changes to the new name
+  # hex colors can be used with &#HEX_CODE
+default:
+  rank_id: 3 # default rank id from ranks.yml
+####################################################################
+#                     ONLY USE FOR MIGRATIONS                      #
+####################################################################
+enable_migrator: false
+migration:
+  type: sqlite # 'mysql' or 'sqlite'
+  mysql:
+    host: localhost
+    port: 3306
+    database: exyliaclans
+    user: root
+    password: password
+####################################################################
+#                  END ONLY USE FOR MIGRATIONS                     #
+####################################################################

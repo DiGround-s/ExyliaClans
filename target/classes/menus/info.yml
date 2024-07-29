@@ -1,0 +1,83 @@
+title: "&#ff8000&lCLAN %name% &8| &cInfo"
+size: 45
+banner:
+  name: "&#ff8000&lCLAN INFORMATION"
+  slot: 12
+  lore:
+    - ""
+    - "&7General information"
+    - "  &8» &fName: &6%name%"
+    - "  &8» &fPrefix: &6%prefix%"
+    - ""
+    - "&7Members information"
+    - "  &8» &fLeader: &a%leader%"
+    - "  &8» &fOnline members: &a%online%&7/&c%total%"
+    - ""
+items:
+  stats:
+    material: PAPER
+    slot: 14
+    name: "&#ff8000&lCLAN STATS"
+    lore:
+      - ""
+      - "&7General information"
+      - "  &8» &fKills: &a%kills%"
+      - "  &8» &fDeaths: &a%deaths%"
+      - "  &8» &fKDR: &a%kdr%"
+      - ""
+  members:
+    material: PLAYER_HEAD
+    slot: 29
+    name: "&#ff8000&lCLAN MEMBERS"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fMembers: &a%online%&7/&c%total%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan members."
+      - ""
+    click_commands:
+      - "clan members %name%"
+  allies:
+    material: BLUE_DYE
+    slot: 31
+    name: "&#ff8000&lALLIES"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fNumber of allies : &a%ally_count%&7/&c%ally_max%"
+      - ""
+      - "&7Allies list"
+      - "  &8» &f%ally_names%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan allies."
+      - ""
+    click_commands:
+      - "clan allies %name%"
+  enemies:
+    material: RED_DYE
+    slot: 33
+    name: "&#ff8000&lENEMIES"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fNumber of allies : &a%enemy_count%&7/&c%enemy_max%"
+      - ""
+      - "&7Enemies list"
+      - "  &8» &f%enemy_names%"
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the clan enemies."
+      - ""
+    click_commands:
+      - "clan enemies %name%"
+  leaderboard:
+    material: STONE_BUTTON
+    slot: 40
+    name: "&cLeaderboard"
+    lore:
+      - "&fGo to the leaderboard"
+    click_commands:
+      - "clan leaderboard"

@@ -1,0 +1,90 @@
+title: "&#ff8000&lCLAN &8| &cLeaderboard"
+size: 54
+filter:
+  kills:
+    slot: 1
+    name: "&#ff8000&lKills &7&o(%select%&7&o)"
+    material: GOLDEN_SWORD
+    lore:
+      - ""
+      - "&7Actions"
+      - "  &8» &fClick to filter by &akills"
+      - ""
+  deaths:
+    slot: 3
+    name: "&#ff8000&lDeaths &7&o(%select%&7&o)"
+    material: BLAZE_POWDER
+    lore:
+      - ""
+      - "&7Actions"
+      - "  &8» &fClick to filter by &adeaths"
+      - ""
+  kdr:
+    slot: 5
+    name: "&#ff8000&lKDR &7&o(%select%&7&o)"
+    material: DIAMOND_CHESTPLATE
+    lore:
+      - ""
+      - "&7Actions"
+      - "  &8» &fClick to filter by &akdr"
+      - ""
+  online:
+    slot: 7
+    name: "&#ff8000&lOnline &7&o(%select%&7&o)"
+    material: ENDER_PEARL
+    lore:
+      - ""
+      - "&7Actions"
+      - "  &8» &fClick to filter by &aonline members"
+      - ""
+clans:
+  slots: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+  name: "&#ff8000&l%name% #%position%"
+  material: PLAYER_HEAD
+  lore:
+    - ""
+    - "&7Information"
+    - "  &8» &fName: &a%name%"
+    - "  &8» &fPrefix: &a%prefix%"
+    - "  &8» &fMembers: &a%online%&8/&c%total%"
+    - "  &8» &fLeader: &a%leader%"
+    - ""
+    - "&7Stats"
+    - "  &8» &fKills: &d%kills%"
+    - "  &8» &fDeaths: &d%deaths%"
+    - "  &8» &fKDR: &d%kdr%"
+    - ""
+    - "&7Actions"
+    - "  &8» &fClick to &eView Clan Information"
+    - ""
+  click_commands:
+    - "clan info %name%"
+next_page:
+  material: ARROW
+  slot: 50
+  name: "&dNext Page"
+  lore:
+    - "&fGo to next page"
+previous_page:
+  material: ARROW
+  slot: 48
+  name: "&dPrevious Page"
+  lore:
+    - "&fGo to previous page"
+close:
+  material: BARRIER
+  slot: 49
+  name: "&cClose"
+  lore:
+    - "&fClose the menu"
+back:
+  material: STONE_BUTTON
+  slot: 49
+  name: "&cBack"
+  lore:
+    - "&fGo to the main menu"
+items:
+  fill_slot:
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0, 2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 45, 46, 47, 51, 52, 53]
+    name: "&f"

@@ -1,0 +1,55 @@
+title: "&#ff8000&lCLAN %name% &8| &cBanner"
+size: 27
+upload_banner:
+  slot: 11
+show_banner:
+  slot: 4
+  no_banner: #for change no banner material in config.yml
+    name: "&#ff8000&lNO BANNER"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fThis clan has no banner,"
+      - "  &8» &fTo upload a banner set the banner"
+      - "  &8» &fin the blank slot."
+      - ""
+  banner:
+    name: "&#ff8000&lBANNER"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fThis banner represents the clan"
+      - "  &8» &fin the leaderboard and on your"
+      - "  &8» &fpublic clan profile."
+      - ""
+items:
+  fill_slot:
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26]
+    name: "&f"
+  info:
+    material: PAPER
+    name: "&#ff8000&lBANNER INFORMATION"
+    slot: 15
+    lore:
+      - ""
+      - "&7Add new banner"
+      - "  &8» &fTo upload a banner set the banner"
+      - "  &8» &fin the blank slot."
+      - ""
+      - "&7Remove a banner"
+      - "  &8» &fTo remove a banner remove your"
+      - "  &8» &fbanner from the uploaded banner slot."
+      - ""
+      - "&7Change your banner"
+      - "  &8» &fTo change your banner set the new banner"
+      - "  &8» &fin the uploaded banner slot."
+      - ""
+  back:
+    material: STONE_BUTTON
+    slot: 22
+    name: "&cBack"
+    lore:
+      - "&fGo back to the previous menu"
+    click_commands:
+      - "clan"

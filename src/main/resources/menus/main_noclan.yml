@@ -1,0 +1,39 @@
+title: "&#ff8000&lWITHOUT CLAN"
+size: 27
+items:
+  leaderboard:
+    material: FILLED_MAP
+    slot: 10
+    name: "&#ff8000&lLEADERBOARD"
+    lore:
+      - ""
+      - "&7Click to"
+      - "  &8» &fTo see the leaderboard."
+      - ""
+    click_commands:
+      - "clan leaderboard"
+  create:
+    material: DIAMOND_SWORD
+    slot: 13
+    name: "&#ff8000&lCREATE A CLAN"
+    lore:
+      - ""
+      - "&7Information"
+      - "  &8» &fCreate a clan with"
+      - "  &8» &d/clan create <name>"
+      - ""
+  credits:
+    material: POPPY
+    slot: 16
+    name: "&#ff8000&lCREDITS"
+    lore:
+      - ""
+      - "&7Created by"
+      - "  &8» &fDiGround"
+      - ""
+      - "&7Discord"
+      - "  &8» &fDiGround"
+      - ""
+      - "&7Support"
+      - "  &8» &fplugins.exylia.net/discord"
+      - ""

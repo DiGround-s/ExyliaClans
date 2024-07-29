@@ -1,0 +1,23 @@
+name: ExyliaClans
+version: '1.0-SNAPSHOT'
+main: net.diground.exylia.ExyliaClans
+api-version: '1.17'
+authors: [DiGround]
+description: Plugin sencillo para clanes
+softdepend:
+  - Vault
+  - PlaceholderApi
+commands:
+  clan:
+    description: Manage clans
+    usage: /<command> <args>
+    aliases: [clan]
+  tl:
+    description: Localizator
+    usage: /<command>
+    aliases: [teamlocalizator]
+  clanadmin:
+    description: Manage clan admins
+    usage: /<command> <args>
+    aliases: [clanadmin, ca, adminclan]
+    permission: exyliaclans.admin

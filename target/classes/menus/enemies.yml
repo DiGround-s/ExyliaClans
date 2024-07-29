@@ -1,0 +1,46 @@
+title: "&#ff8000&lCLAN %name% &8| &cEnemies"
+size: 27
+enemies:
+  slots: [10, 11, 12, 13, 14]
+  name: "&5%enemy_name%"
+  material: RED_DYE
+  glow: true
+  lore:
+    - ""
+    - "&7Information"
+    - "  &8» &fMembers: &a%enemy_online%&7/&c%enemy_total%"
+    - "  &8» &fKills: &d%enemy_kills%"
+    - "  &8» &fDeaths: &d%enemy_deaths%"
+    - "  &8» &fKDR: &d%enemy_kdr%"
+    - ""
+    - "&7Actions"
+    - "  &8» &fLeft click to &2Info"
+    - "  &8» &fRight click to &4Break"
+    - ""
+  left_click_commands:
+    - "clan info %enemy_name%"
+  right_click_commands:
+    - "clan enemy %enemy_name%"
+back:
+  material: STONE_BUTTON
+  slot: 22
+  name: "&cBack"
+  lore:
+    - "&fGo back to the previous menu"
+items:
+  fill_slot:
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 17, 18, 19, 20, 21, 23, 24, 25, 26]
+    name: "&f"
+  info:
+    material: PAPER
+    name: "&#ff8000&lENEMY INFORMATION"
+    slot: 16
+    lore:
+      - ""
+      - "&7Add new enemy"
+      - "  &8» &f/clan enemy <clan>"
+      - ""
+      - "&7Remove an enemy"
+      - "  &8» &f/clan enemy <clan>"
+      - ""

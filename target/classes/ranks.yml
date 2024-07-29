@@ -1,0 +1,95 @@
+ranks:
+  leader:
+    name: "Leader"
+    display-name: "&eLeader"
+    prefix: "&8[&eLeader&8] &r"
+    rankOrder: 0
+    id: 0
+    permissions:
+      - "ALL"
+  coleader:
+    name: "Co-Leader"
+    display-name: "&cCo-Leader"
+    prefix: "&8[&cCo-Leader&8] &r"
+    rankOrder: 1
+    id: 1
+    permissions:
+      - "ACCEPT_ALLY"
+      - "BREAK_ALLY"
+      - "DENY_ALLY"
+      - "REQUEST_ALLY"
+      - "DELETE_BASE"
+      - "SET_BASE"
+      - "USE_BANNER"
+      - "USE_DEMOTE"
+      - "USE_PROMOTE"
+      - "USE_KICK"
+      #############
+      - "USE_ENEMY"
+      - "USE_PVP"
+      - "USE_INVITE"
+      - "SEND_REGROUP"
+      #############
+      - "DEPOSIT_BANK"
+      - "WITHDRAW_BANK"
+      - "USE_BASE"
+      - "USE_CHAT"
+      - "USE_CHEST"
+      - "VIEW_MEMBERS"
+  moderator:
+    name: "Moderator"
+    display-name: "&9Moderator"
+    prefix: "&8[&9Moderator&8] &r"
+    rankOrder: 2
+    id: 2
+    permissions:
+      - "USE_ENEMY"
+      - "USE_PVP"
+      - "USE_INVITE"
+      - "SEND_REGROUP"
+      #############
+      - "DEPOSIT_BANK"
+      - "WITHDRAW_BANK"
+      - "USE_BASE"
+      - "USE_CHAT"
+      - "USE_CHEST"
+      - "VIEW_MEMBERS"
+  member:
+    name: "Member"
+    display-name: "&2Member"
+    prefix: "&8[&2Member&8] &r"
+    rankOrder: 3
+    id: 3 # Change default rank in config.yml
+    permissions:
+      - "DEPOSIT_BANK"
+      - "WITHDRAW_BANK"
+      - "USE_BASE"
+      - "USE_CHAT"
+      - "USE_CHEST"
+      - "VIEW_MEMBERS"
+
+
+
+
+# ALL PERMISSIONS:
+# ACCEPT_ALLY
+# BREAK_ALLY
+# DENY_ALLY
+# REQUEST_ALLY
+# DELETE_BASE
+# SET_BASE
+# DEPOSIT_BANK
+# WITHDRAW_BANK
+# USE_BASE
+# USE_BANNER
+# USE_CHAT
+# USE_CHEST
+# USE_ENEMY
+# USE_PVP
+# USE_INVITE
+# USE_DEMOTE
+# USE_PROMOTE
+# USE_KICK
+# USE_RENAME
+# VIEW_MEMBERS
+# SEND_REGROUP
